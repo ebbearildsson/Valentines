@@ -1,0 +1,83 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100vh;
+}
+
+#back {
+    position: absolute;
+    top: 1vh;
+    left: 1vw;
+    width: 5vw;
+    height: 5vw;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 2vw;
+}
+
+#words {
+    margin-top: 3vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .word {
+        width: 90vw;
+        height: 0vh;
+        font-size: 0vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        &#correct { background-color: #acf; }
+        &#one { background-color: #8ad; }
+        &#two { background-color: #67c; }
+        &#three { background-color: #459; }
+        &#four { background-color: #237; }
+        &#five { background-color: #015; }
+        &.active {
+            height: 10vh;
+            font-size: 7vw;
+        }
+    }
+}
+
+#guesses {
+    width: 90vw;
+    height: 15vh;
+    margin-top: 1vh;
+    background-color: #8ad;
+    overflow-y: scroll;
+    font-size: 7vw;
+}
+
+#inputarea {
+    width: 90vw;
+    height: 10vh;
+    font-size: 7vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+    resize: none;
+}
+
+#submitbtn {
+    width: 90vw;
+    height: 10vh;
+    font-size: 7vw;
+    margin-bottom: 3vh;
+    background-color: #459;
+    color: white;
+    border: none;
+}
