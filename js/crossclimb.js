@@ -86,18 +86,37 @@ function add_keyboard() {
         letter_div.innerText = alph[i];
         keyboard_div.appendChild(letter_div);
     }
+    let enter_div = document.createElement("div");
+    enter_div.classList.add("key");
+    enter_div.innerText = "Enter";
+    keyboard_div.appendChild(enter_div);
+
+    let backspace_div = document.createElement("div");
+    backspace_div.classList.add("key");
+    backspace_div.innerText = "Backspace";
+    keyboard_div.appendChild(backspace_div);
 }
 
 document.addEventListener('click', function(event) {
     if (event.target.classList.contains("key")) {
-        let key = event.target.innerText;
-        let active_letter_div = document.getElementById("letter" + active_word + active_letter);
-        active_letter_div.removeClass = "active";
-        let active_word_div = document.getElementById("word" + active_word);
-        active_word_div.removeClass = "active";
-        if (active_letter < word_length) {
-            input_ladder[active_word][active_letter] = key.toLowerCase();
-            if (active_letter < word_length - 1) active_letter++;
+        if (event.target.innerText === "Enter") {
+            check_ladder();
+        } else if (event.target.innerText === "Backspace") {
+            let active_letter_div = document.getElementById("letter" + active_word + active_letter);
+            active_letter_div.innerText = "_";
+            if (active_letter > 0) {
+                active_letter--;
+            }
+        } else {
+            let key = event.target.innerText;
+            let active_letter_div = document.getElementById("letter" + active_word + active_letter);
+            active_letter_div.removeClass = "active";
+            let active_word_div = document.getElementById("word" + active_word);
+            active_word_div.removeClass = "active";
+            if (active_letter < word_length) {
+                input_ladder[active_word][active_letter] = key.toLowerCase();
+                if (active_letter < word_length - 1) active_letter++;
+            }
         }
         update_ladder();
     }
